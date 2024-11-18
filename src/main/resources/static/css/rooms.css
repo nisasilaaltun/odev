@@ -1,0 +1,130 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+}
+
+nav div a {
+    margin-left: 15px;
+    font-size: 0.9em;
+}
+
+nav div span {
+    font-size: 0.9em;
+    color: #ffd700;
+}
+
+/* Oda Listeleme Alanı */
+.room {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #000;
+    flex: 1 1 300px; /* Sabit genişlik (eşit piksel) */
+    max-width: 300px;
+}
+
+.room:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.room h2 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.room img {
+    width: 100%; /* Resmi odanın genişliği kadar göstermek için */
+    max-height: 250px; /* Resmin sabit yüksekliği */
+    border-radius: 8px;
+    margin: 15px 0;
+    object-fit: cover; /* Resmi odanın tamamına sığdırmak için */
+}
+
+.room p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.room .reserve-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #1e9600 0%, #82c91e 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.room .reserve-button:hover {
+    background: linear-gradient(135deg, #82c91e 0%, #1e9600 100%);
+    transform: translateY(-3px);
+}
+
+/* Oda Listesi Grid */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 60px; /* Navbar'ın altındaki boşluğu ayarlamak için */
+}
+
+div[th\\:each] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}

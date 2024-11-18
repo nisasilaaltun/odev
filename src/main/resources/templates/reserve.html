@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserve Room</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reserve.css}" />
+</head>
+<body>
+
+<h1>Reserve Your Room</h1>
+
+<div class="reserve-container">
+    <form class="reserve-form" th:action="@{/reserve}" method="post">
+        <h2>Rezervasyon Detayları</h2>
+
+        <!-- Oda adı (readonly olabilir) -->
+        <input type="text" th:value="${room.name}" readonly />
+
+        <img th:src="@{'/images/rooms/' + ${room.roomPictureName}}" alt="Room Image" class="room-image" />
+
+        <!-- Başlangıç Tarihi -->
+        <label for="reservationDate">Başlangıç Tarihi:</label>
+        <input type="date" name="reservationDate" id="reservationDate" required />
+
+        <input type="hidden" name="roomId" th:value="${room.id}" />
+
+        <!-- Bitiş Tarihi -->
+        <label for="endDate">Bitiş Tarihi:</label>
+        <input type="date" name="endDate" id="endDate" required />
+
+        <!-- Kişi sayısı -->
+        <label for="numOfPeople">Kişi Sayısı</label>
+        <input type="number" name="numOfPeople" id="numOfPeople" placeholder="Kişi Sayısı" min="1"
+               th:max="${room.size}" required />
+
+        <!-- Rezervasyon yapma butonu -->
+        <button type="submit">Rezerve Et</button>
+    </form>
+</div>
+
+</body>
+</html>
