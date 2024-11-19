@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.math.BigDecimal;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Controller
 @RequiredArgsConstructor
@@ -54,8 +57,9 @@ public class ReservationController {
 
         var user = (String) httpSession.getAttribute("loggedInUser");
 
-        reservationService.makeReservation(roomId, LocalDate.parse(reservationDate), LocalDate.parse(endDate), user);
+        Reservation reservation = reservationService.makeReservation(roomId, LocalDate.parse(reservationDate), LocalDate.parse(endDate), user);
 
+        Double totalPrice = ChronoUnit.DAYS.between(reservation.getReservationDate(), reservation.getEndDate()) * room.getPrice();
         // Rezervasyon işlemini burada işleyebilirsiniz. Örneğin, bir rezervasyon objesi oluşturup veritabanına kaydedebilirsiniz.
 
         model.addAttribute("room", room);
@@ -65,6 +69,10 @@ public class ReservationController {
 
         // Rezervasyon işlemi başarılı olduğunda kullanıcıyı bilgilendirme
         model.addAttribute("message", "Your reservation has been successfully made.");
-        return "thankyou";  // Rezervasyon başarı sayfası
+        model.addAttribute("room", room);
+        model.addAttribute("reservation", reservation);
+        model.addAttribute("totalPrice", totalPrice);
+        return "payment";  // Rezervasyon başarı sayfası
     }
 }
+
