@@ -7,7 +7,6 @@ import com.hotelprject.hotelproject.repository.RoomRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
@@ -21,38 +20,20 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public List<Reservation> getAllReservations() {
-        return reservationRepository.findAll();
-    }
-
-    @Override
-    public Reservation getReservationById(Long id) {
-        return reservationRepository.findById(id).orElse(null);
-    }
-
-    @Override
-    public Reservation saveReservation(Reservation reservation) {
-        return reservationRepository.save(reservation);
-    }
-
-    @Override
-    public void deleteReservation(Long id) {
-        reservationRepository.deleteById(id);
-    }
-
-    @Override
     public Reservation makeReservation(Long roomId, LocalDate reservationDate, LocalDate endDate, String user) {
-        // Odayı bul
+
         Room room = roomRepository.findById(roomId)
                 .orElseThrow(() -> new RuntimeException("Room not found with id: " + roomId));
 
-        // Rezervasyon oluştur
+        room.setAvailable(false);
+
+        roomRepository.save(room);
+
         Reservation reservation = new Reservation();
         reservation.setRoom(room);
         reservation.setReservationDate(reservationDate);
         reservation.setEndDate(endDate);
         reservation.setUserInfo(user);
-
 
         return reservationRepository.save(reservation);
     }

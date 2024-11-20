@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class RoomServiceImpl implements RoomService {
@@ -48,12 +47,12 @@ public class RoomServiceImpl implements RoomService {
         // Rezervasyon yapılmış odaları bul
         List<Long> reservedRoomIds = reservationRepository.findByReservationDate(localDate).stream()
                 .map(reservation -> reservation.getRoom().getId())
-                .collect(Collectors.toList());
+                .toList();
 
         // Rezervasyon yapılmamış odaları döndür
         return roomRepository.findAll().stream()
                 .filter(room -> !reservedRoomIds.contains(room.getId()))
-                .collect(Collectors.toList());
+                .toList();
     }
 }
 

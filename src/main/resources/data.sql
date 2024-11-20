@@ -15,23 +15,11 @@ CREATE TABLE IF NOT EXISTS hotel_user (
                         );
 
 INSERT INTO room (name, price, available, room_picture_name, SIZE) VALUES
-                                                                 ('Deluxe Room', 300.00, true, '1.jpg', 4),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 3),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 2),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 2),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 3),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 2),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 2),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 3),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 2),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 2),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 2),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 2),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 2),
-                                                                 ('Standard Room', 150.00, true, '2.jpg', 2),
-                                                                 ('Suite Room', 500.00, true, '3.jpg', 5),
-                                                                 ('Suite Room', 500.00, true, '3.jpg', 4),
-                                                                 ('Suite Room', 500.00, true, '3.jpg', 4);
+                                                                 ('Deluxe Room', 3000.00, true, '1.jpg', 4),
+                                                                 ('Standard Room', 1500.00, true, '2.jpg', 3),
+                                                                 ('Standard Room', 1200.00, true, '2.jpg', 2),
+                                                                 ('Suite Room', 3800.00, true, '3.jpg', 5),
+                                                                 ('Suite Room', 3500.00, true, '3.jpg', 4);
 
 -- hotel_user tablosuna örnek kullanıcı ekleme
 INSERT INTO hotel_user (name, email, password) VALUES

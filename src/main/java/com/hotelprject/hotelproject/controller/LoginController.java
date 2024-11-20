@@ -17,7 +17,6 @@ import java.util.Optional;
 public class LoginController {
 
     private final HotelUserService hotelUserService;
-
     @GetMapping("/login")
     public String loginPage() {
         return "login";

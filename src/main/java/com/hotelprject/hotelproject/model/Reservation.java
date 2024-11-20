@@ -15,13 +15,9 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String userInfo;
-
     @ManyToOne
     private Room room;
-
     private LocalDate reservationDate;
-
     private LocalDate endDate;
 }
