@@ -2,17 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Renkli Rüyalar Oteli</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
 </head>
 <body>
+
 <!-- Navbar -->
 <nav>
-    <a href="/home">Ana sayfa</a>
-    <a href="/rooms">Odaları Görüntüle</a>
-
-    <!-- Kullanıcı Durumu -->
-    <div style="float: right;">
+    <div class="left-section">
+        <a href="/home">Ana Sayfa</a>
+    </div>
+    <div class="button-container">
+        <!-- Ortada Butonlar: Odalara Görüntüle ve Rezervasyonu İptal Et -->
+        <a href="/rooms" class="button">Odaları Görüntüle</a>
+        <a href="/cancel-reservation" class="cancel-button">Rezervasyonu İptal Et</a>
+    </div>
+    <div class="right-section">
+        <!-- Kullanıcı Durumu -->
         <span th:if="${session.loggedInUser != null}">
             Hoşgeldin, <b th:text="${session.loggedInUser}"></b>!
             <a th:href="@{/logout}" style="margin-left: 10px;">Çıkış Yap</a>
@@ -24,7 +30,7 @@
 </nav>
 
 <!-- Başlık -->
-<h1>Renkli Rüyalar Oteline Hoşgeldin!</h1>
+<h1>Renklı Rüyalar Oteli'ne Hoşgeldiniz</h1>
 
 <!-- Otel Bilgileri -->
 <div class="hotel-info">
@@ -33,22 +39,21 @@
     <p>Hizmetlerimiz:</p>
     <ul>
         <li>Ücretsiz Wi-Fi</li>
-        <li>Fitness Salonu</li>
+        <li>Spa ve Sağlık Merkezi</li>
+        <li>Restoran ve Kafeler</li>
         <li>Yüzme Havuzu</li>
-        <li>24 Saat Oda Servisi</li>
-        <li>Leziz Restoran Menüsü</li>
+        <li>24 Saat Resepsiyon</li>
     </ul>
 </div>
 
 <!-- İletişim Bilgileri -->
 <div class="contact-info">
-    <h3>İletişim</h3>
+    <h3>İletişim Bilgileri</h3>
     <ul>
-        <li>Email: info@renkliruyalar.com</li>
+        <li>Email: info@renklioteli.com</li>
         <li>Telefon: +90 555 123 45 67</li>
         <li>Adres: Beylikdüzü, İstanbul, Türkiye</li>
     </ul>
 </div>
-
 </body>
 </html>

@@ -1,115 +1,185 @@
 /* Genel Ayarlar */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background: linear-gradient(135deg, #d5aefc, #a67dff);
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    animation: backgroundFade 10s infinite alternate;
 }
 
+/* Arka Plan Geçişi */
+@keyframes backgroundFade {
+    0% {
+        background: linear-gradient(135deg, #d5aefc, #a67dff);
+    }
+    50% {
+        background: linear-gradient(135deg, #a67dff, #7848cc);
+    }
+    100% {
+        background: linear-gradient(135deg, #7848cc, #d5aefc);
+    }
+}
+
+/* Başlık */
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 36px;
-    text-transform: uppercase;
-    color: #ffffff;
+    font-size: 2.8rem;
+    margin-top: 2rem;
+    color: #fff;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
 }
 
-/* Navbar */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-nav div {
-    display: flex;
-    align-items: center;
-}
-
-nav div a {
-    margin-left: 15px;
-    font-size: 0.9em;
-}
-
-nav div span {
-    font-size: 0.9em;
-    color: #ffd700;
-}
-
-/* Rezervasyon Formu */
+/* Konteyner */
 .reserve-container {
-    max-width: 600px;
-    margin: 80px auto; /* Navbar ile yerleşimi ayarlamak için */
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    margin: 2rem auto;
+    backdrop-filter: blur(10px);
+    animation: slideUp 1s ease-out;
 }
 
+/* Form */
+.reserve-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Form Başlık */
 .reserve-form h2 {
-    text-align: center;
-    color: #007bff;
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #f2e1ff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.reserve-form input {
+/* Form Elemanları */
+.reserve-form input,
+.reserve-form button,
+.reserve-form label {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    font-size: 1rem;
 }
 
+/* Form Etiketleri */
+.reserve-form label {
+    text-align: left;
+    font-weight: bold;
+    color: #f7f1ff;
+}
+
+/* Giriş Alanları */
+.reserve-form input[type="text"],
 .reserve-form input[type="date"],
 .reserve-form input[type="number"] {
-    font-size: 16px;
-}
-
-.reserve-form button {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(135deg, #1e9600 0%, #82c91e 100%);
-    color: white;
-    font-size: 18px;
-    border: none;
+    padding: 0.8rem;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    border: 1px solid #c9a8f4;
+    background: rgba(255, 255, 255, 0.9);
+    color: #5a3e88;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
-.reserve-form button:hover {
-    background: linear-gradient(135deg, #82c91e 0%, #1e9600 100%);
-    transform: translateY(-3px);
+.reserve-form input[type="text"]:read-only {
+    background: rgba(230, 230, 230, 0.8);
+    color: #8470a8;
+}
+
+/* Input Hover ve Focus */
+.reserve-form input:focus {
+    border-color: #7d48d8;
+    box-shadow: 0px 4px 10px rgba(125, 72, 216, 0.3);
 }
 
 /* Oda Görseli */
 .room-image {
     width: 100%;
-    max-height: 250px;
-    border-radius: 8px;
-    margin: 20px 0;
-    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.room-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Rezervasyon Butonu */
+.reserve-form button {
+    background: linear-gradient(135deg, #8a6eff, #6e3ed9);
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    animation: pulse 2s infinite;
+}
+
+.reserve-form button:hover {
+    background: linear-gradient(135deg, #6e3ed9, #502ba6);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .reserve-container {
+        padding: 1.5rem;
+    }
+
+    .reserve-form h2 {
+        font-size: 1.5rem;
+    }
 }

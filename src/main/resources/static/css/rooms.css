@@ -1,10 +1,10 @@
 /* Genel Ayarlar */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+    background: linear-gradient(135deg, #e5d4f9 0%, #c4aef5 100%);
     margin: 0;
     padding: 20px;
-    color: #fff;
+    color: #333;
 }
 
 h1 {
@@ -12,7 +12,7 @@ h1 {
     margin-bottom: 20px;
     font-size: 36px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: #4b0082;
 }
 
 /* Navbar */
@@ -20,7 +20,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #007bff;
+    background-color: #845ec2; /* Mor tonlarında bir navbar */
     color: white;
     padding: 10px 20px;
     position: fixed;
@@ -36,10 +36,11 @@ nav a {
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: #d9b3ff; /* Açık mor tonu */
 }
 
 nav div {
@@ -54,20 +55,20 @@ nav div a {
 
 nav div span {
     font-size: 0.9em;
-    color: #ffd700;
+    color: #ffde59;
 }
 
 /* Oda Listeleme Alanı */
 .room {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
-    color: #000;
-    flex: 1 1 300px; /* Sabit genişlik (eşit piksel) */
+    color: #4b0082;
+    flex: 1 1 300px;
     max-width: 300px;
 }
 
@@ -78,15 +79,16 @@ nav div span {
 
 .room h2 {
     font-size: 24px;
-    color: #ffffff;
+    color: #4b0082;
 }
 
 .room img {
-    width: 100%; /* Resmi odanın genişliği kadar göstermek için */
-    max-height: 250px; /* Resmin sabit yüksekliği */
+    width: 100%;
+    max-height: 250px;
     border-radius: 8px;
     margin: 15px 0;
-    object-fit: cover; /* Resmi odanın tamamına sığdırmak için */
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .room p {
@@ -94,21 +96,24 @@ nav div span {
     margin: 10px 0;
 }
 
+/* Rezervasyon Butonu */
 .room .reserve-button {
     display: inline-block;
     padding: 10px 15px;
-    background: linear-gradient(135deg, #1e9600 0%, #82c91e 100%);
+    background: linear-gradient(135deg, #a06cd5 0%, #845ec2 100%);
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     text-transform: uppercase;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .room .reserve-button:hover {
-    background: linear-gradient(135deg, #82c91e 0%, #1e9600 100%);
+    background: linear-gradient(135deg, #845ec2 0%, #a06cd5 100%);
     transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Oda Listesi Grid */
@@ -118,7 +123,7 @@ body {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px;
-    padding-top: 60px; /* Navbar'ın altındaki boşluğu ayarlamak için */
+    padding-top: 60px;
 }
 
 div[th\\:each] {
@@ -126,5 +131,5 @@ div[th\\:each] {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto;
 }
