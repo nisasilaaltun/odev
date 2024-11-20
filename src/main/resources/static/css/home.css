@@ -1,82 +1,146 @@
 /* Genel Ayarlar */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f9;
+    background: linear-gradient(to bottom, #e3eafc, #f7f7fc);
     color: #333;
 }
 
 /* Navbar */
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;  /* Butonları sol ve sağa yerleştirir */
     align-items: center;
-    background-color: #007bff;
+    background: linear-gradient(90deg, #a18cd1, #fbc2eb);
     color: white;
-    padding: 10px 20px;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;  /* Butonların alt alta geçmesini sağlar */
 }
 
+/* Navbar Linkleri */
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 1em;
+    transition: all 0.3s ease-in-out;
 }
 
 nav a:hover {
-    text-decoration: underline;
-}
-
-nav div {
-    display: flex;
-    align-items: center;
-}
-
-nav div a {
-    margin-left: 15px;
-    font-size: 0.9em;
-}
-
-nav div span {
-    font-size: 0.9em;
     color: #ffd700;
+    text-shadow: 0px 0px 8px rgba(255, 215, 0, 0.8);
 }
 
 /* Başlık */
 h1 {
     text-align: center;
-    margin-top: 20px;
-    color: #007bff;
+    color: #6a11cb;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 20px 0;
 }
 
-/* Otel Bilgileri */
+/* Navbar Butonları */
+nav .button-container {
+    display: flex;
+    justify-content: flex-end;  /* Sağda hizalar */
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Navbar Linkleri Ortaya Hizala */
+nav .button-container a {
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* İptal Butonu */
+.cancel-button {
+    background: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.cancel-button:hover {
+    color: #f76c6c;
+    transform: translateY(-3px);
+}
+
+/* Otel Bilgileri ve Kartlar */
 .hotel-info, .contact-info {
     background: white;
     margin: 20px auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.hotel-info:hover, .contact-info:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hotel-info h2, .contact-info h3 {
-    color: #007bff;
-    margin-bottom: 10px;
+    color: #6a11cb;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #6a11cb;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
 .hotel-info ul, .contact-info ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .hotel-info ul li, .contact-info ul li {
-    background: #f4f4f9;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 3px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hotel-info ul li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hotel-info ul li span {
+    font-weight: bold;
+    color: #6a11cb;
+}
+
+/* Yazı Alanı ve Etiketler */
+label {
+    font-weight: bold;
+    color: #6a11cb;
+    display: block;
+    margin-bottom: 5px;
 }
 
 /* Responsive Tasarım */
@@ -86,12 +150,8 @@ h1 {
         text-align: center;
     }
 
-    nav a {
-        margin: 5px 0;
-    }
-
-    nav div {
-        justify-content: center;
+    .button-container {
+        margin-top: 30px;
     }
 
     .hotel-info, .contact-info {

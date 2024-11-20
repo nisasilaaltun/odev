@@ -7,34 +7,38 @@
 }
 
 body {
-    background-color: #f0f4f8; /* Arka plan rengi */
+    background: linear-gradient(135deg, #e5d4f9 0%, #c4aef5 100%);
     color: #333;
     line-height: 1.6;
+    padding: 20px;
 }
 
 h1, h2 {
-    color: #444;
+    color: #4b0082;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
     margin-top: 40px;
     font-size: 2.5rem;
+    animation: fadeInDown 1s ease;
 }
 
 .payment-container {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
-    background-color: #ffffff; /* Form için beyaz arka plan */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9); /* Beyaz ama hafif saydam */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeInUp 1s ease;
 }
 
 h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid #d1c4e9;
     padding-bottom: 10px;
 }
 
@@ -45,6 +49,7 @@ p {
 
 strong {
     font-weight: bold;
+    color: #4b0082;
 }
 
 span {
@@ -61,7 +66,7 @@ form {
 
 label {
     font-size: 1rem;
-    color: #555;
+    color: #4b0082;
 }
 
 input[type="text"],
@@ -70,36 +75,62 @@ input[type="password"] {
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="month"]:focus,
 input[type="password"]:focus {
-    border-color: #007bff;
-}
-
-input[type="text"] {
-    width: 100%;
+    border-color: #845ec2;
+    box-shadow: 0 4px 10px rgba(132, 94, 194, 0.2);
 }
 
 button[type="submit"] {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #a06cd5 0%, #845ec2 100%);
     color: #fff;
     padding: 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(132, 94, 194, 0.3);
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(132, 94, 194, 0.5);
+    background: linear-gradient(135deg, #845ec2 0%, #a06cd5 100%);
 }
 
+/* Animasyonlar */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Tasarım */
 @media (max-width: 768px) {
     .payment-container {
         padding: 15px;
@@ -141,21 +172,4 @@ button[type="submit"]:hover {
     }
 
     h2 {
-        font-size: 1.3rem;
-    }
-
-    label {
-        font-size: 0.85rem;
-    }
-
-    input[type="text"],
-    input[type="month"],
-    input[type="password"] {
-        font-size: 0.9rem;
-    }
-
-    button[type="submit"] {
-        padding: 10px;
-        font-size: 0.9rem;
-    }
-}
+        font-size: 1
